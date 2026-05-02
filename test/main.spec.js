@@ -73,4 +73,21 @@ test( 'Validate feather icons loaded', async () => {
 
 } )
 
+
+test( 'Validate centered bounds accounts for display y offset', async () => {
+
+	const centeredBounds = await electronApp.evaluate( async () => {
+		const { getWindowBoundsCentered } = require( './src/main/util' )
+		return getWindowBoundsCentered( {
+			window: { getSize: () => [ 400, 200 ] },
+			display: { bounds: { x: 0, y: 1200, width: 1920, height: 1080 }, workArea: { x: 0, y: 1200, width: 1920, height: 1040 } },
+			useFullBounds: true,
+		} )
+	} )
+
+	expect( centeredBounds.x ).toBe( 760 )
+	expect( centeredBounds.y ).toBe( 1640 )
+
+} )
+
 test( 'Validate custom image', async () => {} )

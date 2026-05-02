@@ -38,7 +38,7 @@ const getWindowBoundsCentered = options => {
 		? currentDisplay.bounds
 		: currentDisplay.workArea
 	const x = Math.floor( screenSize.x + ( ( screenSize.width / 2 ) - ( windowSize.width / 2 ) ) )
-	const y = Math.floor( ( ( screenSize.height + screenSize.y ) / 2 ) - ( windowSize.height / 2 ) )
+	const y = Math.floor( ( screenSize.height / 2 ) + screenSize.y - ( windowSize.height / 2 ) )
 
 	return {
 		x,
