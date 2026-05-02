@@ -365,7 +365,7 @@ const center = options => {
 	centerWindow( {
 		window: options.targetWindow,
 		animated: true,
-		useFullBounds: true,
+		useFullBounds: !is.macos,
 	} )
 
 	if ( options.focus ) {
